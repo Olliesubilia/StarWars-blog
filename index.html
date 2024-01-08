@@ -414,6 +414,22 @@
 
 
 
+<script>
+
+window.onscroll = function() {
+    let image = document.querySelector('.header');
+    let imageOffset = image.offsetTop;
+    let scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollPosition > imageOffset) {
+        image.style.opacity = "0.5";
+    } else {
+        image.style.opacity = "1";
+    }
+};
+
+</script>
+
 
 
 
@@ -426,7 +442,7 @@
 
     <script src="./js/tilt.js"></script>
 
-    <script src="./js/main.js"></script>
+    <script src="./js/main.js" async></script>
 
   </body>
 </html>

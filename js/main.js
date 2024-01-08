@@ -6,18 +6,6 @@
 // })
 
 
-window.onscroll = function() {
-    let image = document.querySelector('.header');
-    let imageOffset = image.offsetTop;
-    let scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-    
-    if (scrollPosition > imageOffset) {
-        image.style.opacity = "0.5";
-    } else {
-        image.style.opacity = "1";
-    }
-};
-
 // laser audio
 document.querySelectorAll('.btn-accent').forEach(el=> {
     el.addEventListener('click', ()=> {
@@ -43,6 +31,8 @@ document.querySelectorAll('#wrapper').forEach(el=> {
 //     document.querySelector('.rightSide').classList.toggle('activeRight')
 // })
 
+
+//NEW MENU
 document.querySelector('#wrapper').addEventListener('click', ()=>{
     
     let user = document.querySelector('#user')
@@ -60,3 +50,29 @@ document.querySelector('#wrapper').addEventListener('click', ()=>{
     overlay.classList.toggle('active')
 })
 
+
+
+
+
+
+
+
+//ALL ARTICLES WITH SWAPI
+const articlesWrapper = document.getElementById('articlesWrapper');
+const div = document.getElementById('div');
+
+let request = "https://swapi.dev/api/people/1/"
+
+fetch(request).then((response) => {
+    return response.json();
+}).then((data) => {
+    let h1 = document.getElementById("h1");
+    console.log(data);
+    h1.innerHTML = JSON.stringify(data.name);
+
+    let p = document.getElementById("p");
+    console.log(data);
+    p.innerHTML = JSON.stringify(data.height);
+
+    articlesWrapper.appendChild(div);
+})
